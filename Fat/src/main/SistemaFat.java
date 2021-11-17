@@ -36,7 +36,6 @@ public class SistemaFat {
 			else aux = "Archivo";
 			System.out.println("Nombre: " + Entrada.nombre + " /Tipo: " + aux + " /Cluster Inicio: " + Entrada.ClusterInicio);
 		}
-		
 	}
 }
 
