@@ -8,7 +8,7 @@ public class FAT {
 	public FAT(int capacidad) {
 		for(int i =0; i<capacidad; i++) {
 			Entrada_Fat aux = new Entrada_Fat();
-			ListaEntradasFat.add(aux);
+			ListaEntradasFat.add(aux); //comentario i
 		}
 	}
 }
