@@ -37,5 +37,43 @@ public class SistemaFat {
 			System.out.println("Nombre: " + Entrada.nombre + " /Tipo: " + aux + " /Cluster Inicio: " + Entrada.ClusterInicio);
 		}
 	}
+	public void anadirArchivo(String nombre, String ruta, int tamArchivo)
+	{
+		int[] listaClusters  = buscarClustersVacios(tamArchivo);
+		actualizarFatArchivos(listaClusters);
+		//Hacer desde aqui /!\
+		
+	}
+	
+	
+	public int[] buscarClustersVacios(int tam){
+		int j = 0;
+		
+		if(tam <= 0) System.out.println("Estas buscando 0 o menos clusters vacios");
+		
+		int[] resultado = new int[tam];		
+		for(int i = 0; j < tam && Fat.ListaEntradasFat.size() < i; i++)
+		{
+			if(Fat.ListaEntradasFat.get(i).Disponible)
+			{
+				resultado[j] = i;
+				j++;
+			}
+		}
+		return resultado;
+	}
+	
+	public void actualizarFatArchivos(int[] clustersArchivos)
+	{
+		for(int i = 0; i < clustersArchivos.length; i++)
+		{
+			Entrada_Fat aux = Fat.ListaEntradasFat.get(clustersArchivos[i]);
+			
+			aux.Disponible = false;
+			
+			if(Fat.ListaEntradasFat.get(clustersArchivos[i + 1]) == null) aux.Fin = true;
+			else aux.siguiente = clustersArchivos[i + 1];
+		}
+	}
 }
 
