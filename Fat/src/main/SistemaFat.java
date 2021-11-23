@@ -10,7 +10,7 @@ public class SistemaFat {
 		Fat = new FAT(capacidad);
 		DirRaiz = new Directorio();
 	}
-	public void Formatear() {
+	public void formatear() {
 		
 		for (Entrada_Fat Entrada: Fat.ListaEntradasFat) {
 			Entrada.Disponible = true;
@@ -18,7 +18,7 @@ public class SistemaFat {
 		DirRaiz.ListaEntradasDirectorios.clear();
 	}
 	
-	public void Mostrar() {
+	public void mostrar() {
 		System.out.println("Sistema Fat: ");
 		System.out.println("Fat: ");
 		int i = 0, j = 0;

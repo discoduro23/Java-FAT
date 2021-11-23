@@ -6,7 +6,8 @@ public class Main {
 		// TODO Auto-generated method stub
 		SistemaFat Sistema = new SistemaFat(10);
 		
-		Sistema.Formatear();
+		Sistema.formatear();
+		Sistema.mostrar();
 		System.out.println("funciona??");
 		
 		//XD la mama de solapaine
