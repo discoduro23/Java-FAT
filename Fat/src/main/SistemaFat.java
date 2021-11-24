@@ -5,11 +5,15 @@ public class SistemaFat {
 	FAT Fat;
 	Directorio DirRaiz;
 	
+	
 	public SistemaFat(int capacidad) {
 		Cluster = new Cluster[capacidad];
 		Fat = new FAT(capacidad);
 		DirRaiz = new Directorio();
 	}
+	
+	
+	
 	public void formatear() {
 		
 		for (Entrada_Fat Entrada: Fat.ListaEntradasFat) {
@@ -17,6 +21,8 @@ public class SistemaFat {
 		}
 		DirRaiz.ListaEntradasDirectorios.clear();
 	}
+	
+	
 	
 	public void mostrar() {
 		System.out.println("Sistema Fat: ");
@@ -37,13 +43,19 @@ public class SistemaFat {
 			System.out.println("Nombre: " + Entrada.nombre + " /Tipo: " + aux + " /Cluster Inicio: " + Entrada.ClusterInicio);
 		}
 	}
+	
+	
+	
 	public void anadirArchivo(String nombre, String ruta, int tamArchivo)
 	{
 		int[] listaClusters  = buscarClustersVacios(tamArchivo);
 		actualizarFatArchivos(listaClusters);
-		//Hacer desde aqui /!\
+		//Hacer desde aqui /!\ 
+		introducirEnCluster(listaClusters, nombre);
+		
 		
 	}
+	
 	
 	
 	public int[] buscarClustersVacios(int tam){
@@ -52,10 +64,8 @@ public class SistemaFat {
 		if(tam <= 0) System.out.println("Estas buscando 0 o menos clusters vacios");
 		
 		int[] resultado = new int[tam];		
-		for(int i = 0; j < tam && Fat.ListaEntradasFat.size() < i; i++)
-		{
-			if(Fat.ListaEntradasFat.get(i).Disponible)
-			{
+		for(int i = 0; j < tam && Fat.ListaEntradasFat.size() < i; i++) {
+			if(Fat.ListaEntradasFat.get(i).Disponible) {
 				resultado[j] = i;
 				j++;
 			}
@@ -63,10 +73,9 @@ public class SistemaFat {
 		return resultado;
 	}
 	
-	public void actualizarFatArchivos(int[] clustersArchivos)
-	{
-		for(int i = 0; i < clustersArchivos.length; i++)
-		{
+	
+	public void actualizarFatArchivos(int[] clustersArchivos) {
+		for(int i = 0; i < clustersArchivos.length; i++) {
 			Entrada_Fat aux = Fat.ListaEntradasFat.get(clustersArchivos[i]);
 			
 			aux.Disponible = false;
@@ -75,5 +84,14 @@ public class SistemaFat {
 			else aux.siguiente = clustersArchivos[i + 1];
 		}
 	}
+	
+	
+	public void introducirEnCluster(int[] idClusDis, String nombre) {
+		for(int i=0; i<idClusDis.length; i++) {
+			Cluster[idClusDis[i]] = new Parte_de_Archivo(nombre + " " + i);
+		}
+	}
+	
+	
 }
 
