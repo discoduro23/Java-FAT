@@ -91,6 +91,19 @@ public class SistemaFat {
 		}
 	}
 	
+	/*
+	
+	public String buscarDir(String ruta) {
+		String rutaEncontrada = "";
+		for (Entrada_Directorio entrada: DirRaiz.ListaEntradasDirectorios) {
+			if(entrada.nombre == ruta) {
+				
+			}
+		}
+		return rutaEncontrada;
+	}
+	*/
+	
 	
 }
 
