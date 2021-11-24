@@ -29,9 +29,9 @@ public class SistemaFat {
 		System.out.println("Fat: ");
 		int i = 0, j = 0;
 		for (Entrada_Fat Entrada: Fat.ListaEntradasFat) {
-			System.out.println("Entrada_" + i + ": ");
+			System.out.println("\tEntrada_" + i + ": ");
 			i++;
-			System.out.println("Disponible: " + Entrada.Disponible + " /Siguiente: "  + Entrada.siguiente + " /Fin: " + Entrada.Fin);
+			System.out.println("\t\tDisponible = " + Entrada.Disponible + " | Siguiente = "  + Entrada.siguiente + " | Fin = " + Entrada.Fin);
 		}
 		System.out.println("Directorio Raiz: ");
 		for (Entrada_Directorio Entrada: DirRaiz.ListaEntradasDirectorios) {
@@ -40,14 +40,13 @@ public class SistemaFat {
 			String aux;
 			if (Entrada.esDir) aux = "Directorio";
 			else aux = "Archivo";
-			System.out.println("Nombre: " + Entrada.nombre + " /Tipo: " + aux + " /Cluster Inicio: " + Entrada.ClusterInicio);
+			System.out.println("Nombre: " + Entrada.nombre + " | Tipo: " + aux + " | Cluster Inicio: " + Entrada.ClusterInicio);
 		}
 	}
 	
 	
 	
-	public void anadirArchivo(String nombre, String ruta, int tamArchivo)
-	{
+	public void anadirArchivo(String nombre, String ruta, int tamArchivo) {
 		int[] listaClusters  = buscarClustersVacios(tamArchivo);
 		actualizarFatArchivos(listaClusters);
 		//Hacer desde aqui /!\ 
