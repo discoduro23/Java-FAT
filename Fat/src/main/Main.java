@@ -10,7 +10,6 @@ public class Main {
 		Sistema.mostrar();
 		System.out.println("funciona??");
 		
-		//XD la mama de solapaine
 		
 		
 	}
