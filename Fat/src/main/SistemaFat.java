@@ -10,6 +10,7 @@ public class SistemaFat {
 		Cluster = new Cluster[capacidad];
 		Fat = new FAT(capacidad);
 		DirRaiz = new Directorio();
+		formatear();
 	}
 	
 	
@@ -48,11 +49,17 @@ public class SistemaFat {
 	
 	public void anadirArchivo(String nombre, String ruta, int tamArchivo) {
 		int[] listaClusters  = buscarClustersVacios(tamArchivo);
+		for (int i = 0; i< listaClusters.length; i++) {
+			System.out.println(listaClusters[i]);
+		}
 		actualizarFatArchivos(listaClusters);
 		//Hacer desde aqui /!\ 
 		introducirEnCluster(listaClusters, nombre);
-		
-		
+		Entrada_Directorio aux = new Entrada_Directorio(tamArchivo);
+		Parte_de_Archivo au2 = new Parte_de_Archivo(nombre);
+		aux.nombre = au2.dato;
+		DirRaiz.ListaEntradasDirectorios.add(aux);
+
 	}
 	
 	
@@ -63,7 +70,7 @@ public class SistemaFat {
 		if(tam <= 0) System.out.println("Estas buscando 0 o menos clusters vacios");
 		
 		int[] resultado = new int[tam];		
-		for(int i = 0; j < tam && Fat.ListaEntradasFat.size() < i; i++) {
+		for(int i = 0; j < tam && i < Fat.ListaEntradasFat.size(); i++) {
 			if(Fat.ListaEntradasFat.get(i).Disponible) {
 				resultado[j] = i;
 				j++;
@@ -76,11 +83,13 @@ public class SistemaFat {
 	public void actualizarFatArchivos(int[] clustersArchivos) {
 		for(int i = 0; i < clustersArchivos.length; i++) {
 			Entrada_Fat aux = Fat.ListaEntradasFat.get(clustersArchivos[i]);
-			
+			System.out.println("aaaaa" + aux.Disponible);
 			aux.Disponible = false;
 			
-			if(Fat.ListaEntradasFat.get(clustersArchivos[i + 1]) == null) aux.Fin = true;
+			if(i == clustersArchivos.length-1) aux.Fin = true;
 			else aux.siguiente = clustersArchivos[i + 1];
+
+			System.out.println(clustersArchivos[i]);
 		}
 	}
 	
@@ -91,18 +100,18 @@ public class SistemaFat {
 		}
 	}
 	
-	/*
-	
+
 	public String buscarDir(String ruta) {
-		String rutaEncontrada = "";
-		for (Entrada_Directorio entrada: DirRaiz.ListaEntradasDirectorios) {
-			if(entrada.nombre == ruta) {
-				
+		String rutaEncontrada = " ";
+		System.out.println("entrada");
+
+		for (Entrada_Directorio Entrada: DirRaiz.ListaEntradasDirectorios) {
+			if (Entrada.nombre == ruta) {
+				return Entrada.nombre;
 			}
 		}
 		return rutaEncontrada;
 	}
-	*/
 	
 	
 }

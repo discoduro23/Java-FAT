@@ -7,4 +7,11 @@ public class Directorio extends Cluster{
 
 	public Directorio() {
 	}
+
+	@Override
+	public String toString() {
+		return "Directorio{" +
+				"ListaEntradasDirectorios=" + ListaEntradasDirectorios +
+				'}';
+	}
 }

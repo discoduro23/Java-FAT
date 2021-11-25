@@ -8,4 +8,14 @@ public class Entrada_Directorio {
 	public Entrada_Directorio(int clusterInicio) {
 		ClusterInicio = clusterInicio;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Entrada_Directorio{" +
+				"nombre='" + nombre + '\'' +
+				", esDir=" + esDir +
+				", ClusterInicio=" + ClusterInicio +
+				'}';
+	}
 }

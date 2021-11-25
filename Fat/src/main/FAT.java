@@ -11,4 +11,11 @@ public class FAT {
 			ListaEntradasFat.add(aux);
 		}
 	}
+
+	@Override
+	public String toString() {
+		return "FAT{" +
+				"ListaEntradasFat=" + ListaEntradasFat +
+				'}';
+	}
 }
