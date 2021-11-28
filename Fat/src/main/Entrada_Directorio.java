@@ -5,8 +5,9 @@ public class Entrada_Directorio {
 	boolean esDir;
 	int ClusterInicio;
 	
-	public Entrada_Directorio(int clusterInicio) {
+	public Entrada_Directorio(int clusterInicio, boolean esDir) {
 		ClusterInicio = clusterInicio;
+		this.esDir = esDir;
 	}
 
 

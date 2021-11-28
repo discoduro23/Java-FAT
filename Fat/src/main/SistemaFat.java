@@ -9,7 +9,7 @@ public class SistemaFat {
 	public SistemaFat(int capacidad) {
 		Cluster = new Cluster[capacidad];
 		Fat = new FAT(capacidad);
-		DirRaiz = new Directorio();
+		DirRaiz = new Directorio("C:/");
 		formatear();
 	}
 	
@@ -25,43 +25,70 @@ public class SistemaFat {
 	
 	
 	
-	public void mostrar() {
+	public void mostrarFat() {
 		System.out.println("Sistema Fat: ");
 		System.out.println("Fat: ");
-		int i = 0, j = 0;
+		int i = 0;
 		for (Entrada_Fat Entrada: Fat.ListaEntradasFat) {
 			System.out.println("\tEntrada_" + i + ": ");
 			i++;
 			System.out.println("\t\tDisponible = " + Entrada.Disponible + " | Siguiente = "  + Entrada.siguiente + " | Fin = " + Entrada.Fin);
 		}
-		System.out.println("Directorio Raiz: ");
-		for (Entrada_Directorio Entrada: DirRaiz.ListaEntradasDirectorios) {
-			System.out.println("Posicion_" + j + ": ");
-			j++;
-			String aux;
-			if (Entrada.esDir) aux = "Directorio";
-			else aux = "Archivo";
-			System.out.println("Nombre: " + Entrada.nombre + " | Tipo: " + aux + " | Cluster Inicio: " + Entrada.ClusterInicio);
+	}
+	public void mostrarDir(Directorio carpeta, int profundidad) {
+		int i=0;
+		for(int j=0; j<profundidad; j++)System.out.print("-----");
+		System.out.println("Directorio "+ carpeta.nombre +": ");
+		for (Entrada_Directorio Entrada: carpeta.ListaEntradasDirectorios) {
+			for(int j=0; j<profundidad; j++)System.out.print("-----");
+			System.out.println("Posicion_" + i + ": ");
+			i++;
+			if (!Entrada.esDir) {
+				for(int j=0; j<profundidad; j++)System.out.print("-----");
+				System.out.println("Nombre: " + Entrada.nombre + " | Tipo: Archivo | Cluster Inicio: " + Entrada.ClusterInicio);
+			}
+			else {
+				for(int j=0; j<profundidad; j++)System.out.print("-----");
+				System.out.println("Nombre: " + Entrada.nombre + " | Tipo: Directorio | Cluster Inicio: " + Entrada.ClusterInicio);
+				int aux = profundidad + 1;
+				mostrarDir((Directorio) Cluster[Entrada.ClusterInicio], aux);
+			}
+			
+			
 		}
 	}
-	
 	
 	
 	public void anadirArchivo(String nombre, String ruta, int tamArchivo) {
 		int[] listaClusters  = buscarClustersVacios(tamArchivo);
-		for (int i = 0; i< listaClusters.length; i++) {
+		Entrada_Directorio aux = new Entrada_Directorio(listaClusters[0], false);
+		Directorio Daux = buscarDir(ruta, DirRaiz);
+		if(Daux != null) Daux.ListaEntradasDirectorios.add(aux);
+		else System.out.println("Directorio no encontrado");
+		/*for (int i = 0; i< listaClusters.length; i++) {
 			System.out.println(listaClusters[i]);
-		}
-		actualizarFatArchivos(listaClusters);
-		//Hacer desde aqui /!\ 
-		introducirEnCluster(listaClusters, nombre);
-		Entrada_Directorio aux = new Entrada_Directorio(tamArchivo);
+		}*/
+		actualizarFat(listaClusters);
+		introducirEnCluster(listaClusters, nombre, false);
 		Parte_de_Archivo au2 = new Parte_de_Archivo(nombre);
 		aux.nombre = au2.dato;
-		DirRaiz.ListaEntradasDirectorios.add(aux);
+		
 
 	}
-	
+	public void anadirDirectorio(String nombre, String ruta) {
+		int[] cluster  = buscarClustersVacios(1);
+		Entrada_Directorio aux = new Entrada_Directorio(cluster[0], true);
+		Directorio Daux = buscarDir(ruta, DirRaiz);
+		if(Daux != null) Daux.ListaEntradasDirectorios.add(aux);
+		else System.out.println("Directorio no encontrado");
+		//System.out.println(cluster[0]);
+		
+		actualizarFat(cluster);
+		introducirEnCluster(cluster, nombre, true);
+		aux.nombre = nombre;
+		
+
+	}
 	
 	
 	public int[] buscarClustersVacios(int tam){
@@ -80,37 +107,42 @@ public class SistemaFat {
 	}
 	
 	
-	public void actualizarFatArchivos(int[] clustersArchivos) {
+	public void actualizarFat(int[] clustersArchivos) {
 		for(int i = 0; i < clustersArchivos.length; i++) {
 			Entrada_Fat aux = Fat.ListaEntradasFat.get(clustersArchivos[i]);
-			System.out.println("aaaaa" + aux.Disponible);
 			aux.Disponible = false;
 			
 			if(i == clustersArchivos.length-1) aux.Fin = true;
 			else aux.siguiente = clustersArchivos[i + 1];
 
-			System.out.println(clustersArchivos[i]);
+			//System.out.println(clustersArchivos[i]);
 		}
 	}
 	
 	
-	public void introducirEnCluster(int[] idClusDis, String nombre) {
+	public void introducirEnCluster(int[] idClusDis, String nombre, boolean esDir) {
 		for(int i=0; i<idClusDis.length; i++) {
-			Cluster[idClusDis[i]] = new Parte_de_Archivo(nombre + " " + i);
+			if(!esDir) Cluster[idClusDis[i]] = new Parte_de_Archivo(nombre + " " + i);
+			else Cluster[idClusDis[i]] = new Directorio(nombre);
 		}
 	}
 	
 
-	public String buscarDir(String ruta) {
-		String rutaEncontrada = " ";
-		System.out.println("entrada");
-
-		for (Entrada_Directorio Entrada: DirRaiz.ListaEntradasDirectorios) {
-			if (Entrada.nombre == ruta) {
-				return Entrada.nombre;
-			}
+	public Directorio buscarDir(String ruta, Directorio carpeta) {
+		if(ruta == carpeta.nombre) return carpeta;
+		else
+		{
+			for (Entrada_Directorio Entrada: carpeta.ListaEntradasDirectorios) {
+				if (Entrada.nombre == ruta && Entrada.esDir) {
+					return (Directorio) Cluster[Entrada.ClusterInicio];
+				}
+				else if (Entrada.esDir) {
+					Directorio aux = (Directorio) Cluster[Entrada.ClusterInicio];
+					return buscarDir(ruta, aux);
+				}
+			}	
 		}
-		return rutaEncontrada;
+		return null;
 	}
 	
 	

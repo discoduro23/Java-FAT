@@ -4,15 +4,22 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		SistemaFat Sistema = new SistemaFat(10);
+		SistemaFat Sistema = new SistemaFat(20);
 
 
 		Sistema.formatear();
-		System.out.println("funciona??");
-		Sistema.anadirArchivo("peli","hola/temp",3);
-		//Sistema.anadirArchivo("Gay el que lo lea","hola/temp",3);
-		//Sistema.buscarDir("hola/temp");
-		Sistema.mostrar();
+		Sistema.anadirArchivo("peli","C:/",3);
+		Sistema.anadirDirectorio("pelis", "C:/");
+		Sistema.anadirArchivo("otraPeli", "pelis",2);
+		Sistema.anadirDirectorio("mascosas", "pelis");
+		Sistema.anadirArchivo("otraPelimas", "mascosas",2);
+		Sistema.anadirArchivo("foto","C:/",1);
+		
+		
+		
+		
+		Sistema.mostrarFat();
+		Sistema.mostrarDir(Sistema.DirRaiz, 0);
 		
 	}
 
