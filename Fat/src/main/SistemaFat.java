@@ -51,7 +51,8 @@ public class SistemaFat {
 				for(int j=0; j<profundidad; j++)System.out.print("-----");
 				System.out.println("Nombre: " + Entrada.nombre + " | Tipo: Directorio | Cluster Inicio: " + Entrada.ClusterInicio);
 				int aux = profundidad + 1;
-				mostrarDir((Directorio) Cluster[Entrada.ClusterInicio], aux);
+				Directorio nCarpeta = (Directorio) Cluster[Entrada.ClusterInicio];
+				mostrarDir(nCarpeta, aux);
 			}
 			
 			

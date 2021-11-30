@@ -11,14 +11,14 @@ public class Main {
 		Sistema.anadirArchivo("peli","C:/",3);
 		Sistema.anadirDirectorio("pelis", "C:/");
 		Sistema.anadirArchivo("otraPeli", "pelis",2);
-		Sistema.anadirDirectorio("mascosas", "pelis");
+		Sistema.anadirDirectorio("mascosas", "C:/");
 		Sistema.anadirArchivo("otraPelimas", "mascosas",2);
 		Sistema.anadirArchivo("foto","C:/",1);
 		
 		
 		
 		
-		Sistema.mostrarFat();
+		//Sistema.mostrarFat();
 		Sistema.mostrarDir(Sistema.DirRaiz, 0);
 		
 	}
