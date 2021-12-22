@@ -129,7 +129,7 @@ public class SistemaFat {
 	}
 	
 
-	public Directorio buscarDir(String ruta, Directorio carpeta) {
+	/*public Directorio buscarDir(String ruta, Directorio carpeta) {
 		if(ruta == carpeta.nombre) return carpeta;
 		else
 		{
@@ -144,8 +144,20 @@ public class SistemaFat {
 			}	
 		}
 		return null;
-	}
+	}*/
 	
+	public Directorio buscarDir(String ruta, Directorio carpeta) {
+		String[] subRutas = ruta.split("/");
+		
+		
+		for (Entrada_Directorio Entrada: carpeta.ListaEntradasDirectorios) {
+			if(Entrada.nombre == subRutas[i]);
+			
+		}
+			
+		
+		return null;
+	} 
 	
 }
 
