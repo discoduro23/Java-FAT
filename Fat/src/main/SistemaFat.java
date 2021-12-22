@@ -9,7 +9,7 @@ public class SistemaFat {
 	public SistemaFat(int capacidad) {
 		Cluster = new Cluster[capacidad];
 		Fat = new FAT(capacidad);
-		DirRaiz = new Directorio("C:/");
+		DirRaiz = new Directorio("C:");
 		formatear();
 	}
 	
@@ -148,13 +148,23 @@ public class SistemaFat {
 	
 	public Directorio buscarDir(String ruta, Directorio carpeta) {
 		String[] subRutas = ruta.split("/");
-		
-		
-		for (Entrada_Directorio Entrada: carpeta.ListaEntradasDirectorios) {
-			if(Entrada.nombre == subRutas[i]);
-			
+		int profundidad = subRutas.length, i=0;
+		for (String subRuta: subRutas) {
+			i++;
+			for (Entrada_Directorio Entrada: carpeta.ListaEntradasDirectorios) {
+				if (Entrada.nombre == subRuta && Entrada.esDir) {
+					if(profundidad == i) return (Directorio) Cluster[Entrada.ClusterInicio];
+					else {
+						String Cruta=null;
+						for(int j=1; j<(subRutas.length); j++) {
+							Cruta = (Cruta + '/' + subRutas[j]); 
+						}
+						Directorio aux = (Directorio) Cluster[Entrada.ClusterInicio];
+						return buscarDir(Cruta, aux);
+					}
+				}
+			}
 		}
-			
 		
 		return null;
 	} 

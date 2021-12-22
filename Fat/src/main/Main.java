@@ -12,7 +12,7 @@ public class Main {
 		Sistema.anadirDirectorio("pelis", "C:/");
 		Sistema.anadirArchivo("otraPeli", "pelis",2);
 		Sistema.anadirDirectorio("mascosas", "C:/");
-		Sistema.anadirArchivo("otraPelimas", "mascosas",2);
+		Sistema.anadirArchivo("otraPelimas", "C:/mascosas",2);
 		Sistema.anadirArchivo("foto","C:/",1);
 		
 		
