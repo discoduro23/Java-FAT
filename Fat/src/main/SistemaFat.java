@@ -80,13 +80,14 @@ public class SistemaFat {
 		int[] cluster  = buscarClustersVacios(1);
 		Entrada_Directorio aux = new Entrada_Directorio(cluster[0], true);
 		Directorio Daux = buscarDir(ruta, DirRaiz);
+		aux.nombre = nombre;
 		if(Daux != null) Daux.ListaEntradasDirectorios.add(aux);
 		else System.out.println("Directorio no encontrado");
 		//System.out.println(cluster[0]);
 		
 		actualizarFat(cluster);
 		introducirEnCluster(cluster, nombre, true);
-		aux.nombre = nombre;
+		
 		
 
 	}
@@ -128,81 +129,27 @@ public class SistemaFat {
 		}
 	}
 	
-
-	/*public Directorio buscarDir(String ruta, Directorio carpeta) {
-		if(ruta == carpeta.nombre) return carpeta;
-		else
-		{
-			for (Entrada_Directorio Entrada: carpeta.ListaEntradasDirectorios) {
-				if (Entrada.nombre == ruta && Entrada.esDir) {
-					return (Directorio) Cluster[Entrada.ClusterInicio];
-				}
-				else if (Entrada.esDir) {
-					Directorio aux = (Directorio) Cluster[Entrada.ClusterInicio];
-					return buscarDir(ruta, aux);
-				}
-			}	
-		}
-		return null;
-	}
-	
 	
 	public Directorio buscarDir(String ruta, Directorio carpeta) {
 		String[] subRutas = ruta.split("/");
-		int profundidad = subRutas.length, i=0;
-		for (String subRuta: subRutas) {
-			
-			for (Entrada_Directorio Entrada: carpeta.ListaEntradasDirectorios) {
-				if (Entrada.nombre == subRuta && Entrada.esDir) {
-					if(profundidad == i) return (Directorio) Cluster[Entrada.ClusterInicio];
-					else {
-						String Cruta=null;
-						for(int j=1; j<(subRutas.length); j++) {
-							Cruta = (Cruta + '/' + subRutas[j]); 
-						}
-						Directorio aux = (Directorio) Cluster[Entrada.ClusterInicio];
-						return buscarDir(Cruta, aux);
-					}
-				}
-			
-			}	
-			i++;
-		}
-		
-		return null;
-	}*/
-	
-	public Directorio buscarDir(String ruta, Directorio carpeta) {
-		String[] subRutas = ruta.split("/");
-		if(carpeta.ListaEntradasDirectorios.size() == 0) return null;
+		if(subRutas[0] == subRutas[subRutas.length-1]) return carpeta;
 		 
 		for(int i = 0; i < carpeta.ListaEntradasDirectorios.size(); i++)
 		{
-			System.out.println("Esta en el for");
-			if(carpeta.ListaEntradasDirectorios.get(i).esDir)
-					{
-				System.out.println("Dir encontrado");
-				if(subRutas[0] == carpeta.ListaEntradasDirectorios.get(i).nombre)
-				{
-					System.out.println("Nombre encontrado final");
-					return (Directorio) Cluster[carpeta.ListaEntradasDirectorios.get(i).ClusterInicio];
-				}
-				else if(subRutas[1] == carpeta.ListaEntradasDirectorios.get(i).nombre)
-				{
-					System.out.println("Dir encontrado para recursividad");
-					String auxRuta="";
-					for(int j=1; j<(subRutas.length-1); j++) {
-						auxRuta = (auxRuta + '/' + subRutas[j]); 
-					}
-					Directorio aux = (Directorio) Cluster[carpeta.ListaEntradasDirectorios.get(i).ClusterInicio];
-					return buscarDir(auxRuta, aux);
-				}
-		
-				
-			}
 			
-		}
-		
+			if(carpeta.ListaEntradasDirectorios.get(i).esDir && carpeta.ListaEntradasDirectorios.get(i).nombre.equals(subRutas[1]))
+			{					
+				String auxRuta="";
+				for(int j=1; j<(subRutas.length); j++) 
+				{
+					
+					auxRuta +=subRutas[j]; 
+					auxRuta += "/";
+				}
+				Directorio aux = (Directorio) Cluster[carpeta.ListaEntradasDirectorios.get(i).ClusterInicio];
+				return buscarDir(auxRuta, aux);
+			}
+			}
 		
 		return null;
 	}

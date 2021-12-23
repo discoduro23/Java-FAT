@@ -13,7 +13,9 @@ public class Main {
 		Sistema.anadirArchivo("otraPeli", "C:/pelis",2);
 		Sistema.anadirDirectorio("mascosas", "C:");
 		Sistema.anadirArchivo("otraPelimas", "C:/mascosas",2);
-		Sistema.anadirArchivo("foto","C:",1);
+		Sistema.anadirDirectorio("mascosas2", "C:/mascosas");
+		Sistema.anadirDirectorio("mascosas3", "C:/mascosas/mascosas2");
+		Sistema.anadirArchivo("foto","C:/mascosas/mascosas2/mascosas3",1);
 		
 		
 		
