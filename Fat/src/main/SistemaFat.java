@@ -42,14 +42,14 @@ public class SistemaFat {
 		if(Daux != null) {
 			int i=0;
 			for(int j=0; j<profundidad; j++)System.out.print("-----");
-			System.out.println("Directorio "+ Daux.nombre +": ");
+			System.out.println("Directorio "+ Daux.nombre +":\n");
 			for (Entrada_Directorio Entrada: Daux.ListaEntradasDirectorios) {
 				for(int j=0; j<profundidad; j++)System.out.print("-----");
 				System.out.println("Posicion_" + i + ": ");
 				i++;
 				if (!Entrada.esDir) {
 					for(int j=0; j<profundidad; j++)System.out.print("-----");
-					System.out.println("Nombre: " + Entrada.nombre + " | Tipo: Archivo | Cluster Inicio: " + Entrada.ClusterInicio);
+					System.out.println("Nombre: " + Entrada.nombre + " | Tipo: Archivo | Cluster Inicio: " + Entrada.ClusterInicio + "\n");
 				}
 				else {
 					for(int j=0; j<profundidad; j++)System.out.print("-----");
@@ -190,11 +190,13 @@ public class SistemaFat {
 		String[] subRutas = ruta.split("/");
 		String auxRuta="";
 		Directorio Dir = buscarDir(ruta, DirRaiz);
-		for(int i = 0; i < Dir.ListaEntradasDirectorios.size(); i++)
+		
+		
+		for(int i = Dir.ListaEntradasDirectorios.size()-1; i >= 0; i--)
 		{
 			if(!Dir.ListaEntradasDirectorios.get(i).esDir)
 			{
-				eliminarArchivo(ruta + Dir.ListaEntradasDirectorios.get(i).nombre);
+				eliminarArchivo(ruta + "/" + Dir.ListaEntradasDirectorios.get(i).nombre);
 			}
 			else {
 				eliminarDirectorio(ruta + "/" + Dir.ListaEntradasDirectorios.get(i).nombre);
@@ -209,7 +211,7 @@ public class SistemaFat {
 		}
 		Directorio DirAnt = buscarDir(auxRuta, DirRaiz);
 		
-		for(int i = 0; i < DirAnt.ListaEntradasDirectorios.size(); i++)
+		for(int i = DirAnt.ListaEntradasDirectorios.size()-1; i >= 0; i--)
 		{
 			
 			if(DirAnt.ListaEntradasDirectorios.get(i).esDir && DirAnt.ListaEntradasDirectorios.get(i).nombre.equals(subRutas[subRutas.length-1]))
@@ -217,9 +219,38 @@ public class SistemaFat {
 				ClusterInicio = DirAnt.ListaEntradasDirectorios.get(i).ClusterInicio;
 				DirAnt.ListaEntradasDirectorios.remove(i);
 				eliminarDeFat(Fat.ListaEntradasFat.get(ClusterInicio));
+				
 			}
 		}
 		
+	}
+	
+	public void moverArchivo(String rutaFuente, String rutaDestino) {
+		
+		String[] subRutaFuente = rutaFuente.split("/");
+		String auxRuta="";
+		int ClusterInicio = 0;
+		for(int j=0; j<(subRutaFuente.length-1); j++) 
+		{
+			
+			auxRuta +=subRutaFuente[j]; 
+			auxRuta += "/";
+		}
+		String nombre = subRutaFuente[subRutaFuente.length-1];
+		Directorio DirFuente = buscarDir(auxRuta, DirRaiz);
+		
+		Directorio DirDestino = buscarDir(rutaDestino, DirRaiz);
+		
+		for(int i = 0; i < DirFuente.ListaEntradasDirectorios.size(); i++)
+		{
+			if(!DirFuente.ListaEntradasDirectorios.get(i).esDir && DirFuente.ListaEntradasDirectorios.get(i).nombre.equals(nombre))
+			{
+				DirDestino.ListaEntradasDirectorios.add(DirFuente.ListaEntradasDirectorios.get(i));
+				
+				ClusterInicio = DirFuente.ListaEntradasDirectorios.get(i).ClusterInicio;
+				DirFuente.ListaEntradasDirectorios.remove(i);
+			}
+		}
 	}
 	
 	
