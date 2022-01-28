@@ -4,7 +4,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		SistemaFat Sistema = new SistemaFat(20);
+		SistemaFat Sistema = new SistemaFat(12);
 
 
 		Sistema.formatear();
@@ -21,7 +21,10 @@ public class Main {
 		
 		
 		//Sistema.mostrarFat();
-		Sistema.mostrarDir(Sistema.DirRaiz, 0);
+		//Sistema.eliminarArchivo("C:/mascosas/mascosas2/mascosas3/foto");
+		//Sistema.anadirArchivo("foto2","C:/mascosas/mascosas2/mascosas3",1);
+		Sistema.eliminarDirectorio("C:/pelis");
+		Sistema.mostrarDir("C:", 0);
 		
 	}
 
