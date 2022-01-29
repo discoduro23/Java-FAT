@@ -171,6 +171,14 @@ public class MenuManager {
 		ReiniciarTMP ptmp = new ReiniciarTMP(Sistema, name);
 		ptmp.run();
 	}
+	
+	void crearProceso() {
+		Scanner showd = new Scanner(System.in);
+		System.out.println("Introduce el nombre del proceso para crearlo\n");
+		String archiproc = showd.nextLine();
+		Proceso nuevo = new Proceso(archiproc);
+		procesos.crearProceso(nuevo);
+	}
 	public void clearConsole() {
         for(int i = 0; i < 60; i++) {
         	System.out.println("\n");
