@@ -1,5 +1,6 @@
 package main;
 import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class MenuManager {
@@ -19,7 +20,7 @@ public class MenuManager {
         int opcion; //Guardaremos la opcion del usuario
 
         while(!salir){
-            System.out.println("\n=========Escoja una opción el menú=========");
+            System.out.println("\n=========Escoja una opción del menú=========");
             System.out.println("1. Crear Archivo");
             System.out.println("2. Crear Directorio");
             System.out.println("3. Mostrar Metadatos"); //DANIEL
@@ -30,7 +31,8 @@ public class MenuManager {
             System.out.println("8. Matar Proceso");
             System.out.println("9. Listar procesos");
             System.out.println("10. Empezar borraTMP");
-            System.out.println("11. Salir\n");
+            System.out.println("11. Salir\n\n");
+            System.out.print("Escoja su opción: ");
 
 
             try {
@@ -112,7 +114,7 @@ public class MenuManager {
         System.out.println("Introduce un tamaño para el archivo\n");
         int size = adda.nextInt();
         Sistema.anadirArchivo(nombrearchivo, arcruta, size);
-        adda.close();
+        
 	}
 	public void crearDir() {
 		Scanner adda = new Scanner(System.in);
@@ -121,7 +123,7 @@ public class MenuManager {
         System.out.println("Introduce una ruta para el directorio\n");
         String arcruta = adda.nextLine();
         Sistema.anadirDirectorio(nombrearchivo, arcruta);
-        adda.close();
+        
 	}
 	public void mostrarMetaDatos() {
 		Sistema.mostrarFat();
@@ -132,21 +134,18 @@ public class MenuManager {
 		System.out.println("Introduce la ruta del directorio\n");
 		String directo = showd.nextLine();
 		Sistema.mostrarDir(directo, 0);
-		showd.close();
 	}
 	public void eliminarArchivo() {
 		Scanner showd = new Scanner(System.in);
 		System.out.println("Introduce la ruta del archivo para eliminarlo\n");
 		String archiv = showd.nextLine();
 		Sistema.eliminarArchivo(archiv);
-		showd.close();
 	}
 	public void eliminarDir() {
 		Scanner showd = new Scanner(System.in);
 		System.out.println("Introduce la ruta del directorio para eliminarlo\n");
 		String direc = showd.nextLine();
 		Sistema.eliminarDirectorio(direc);
-		showd.close();
 	}
 
 	public void moverArchivo() {
@@ -156,7 +155,6 @@ public class MenuManager {
 		System.out.println("Introduce la ruta Destino\n");
 		String rustdestino = showd.nextLine();
 		Sistema.moverArchivo(rutafuente, rustdestino);
-		showd.close();
 	}
 	
 	public void matarProceso() {
@@ -164,7 +162,6 @@ public class MenuManager {
 		System.out.println("Introduce el nombre del proceso para eliminar\n");
 		String archiproc = showd.nextLine();
 		procesos.eliminarProceso(archiproc);
-		showd.close();
 	}
 	
 	void borrarTmp() {
@@ -173,7 +170,6 @@ public class MenuManager {
 		String name = showd.nextLine();
 		ReiniciarTMP ptmp = new ReiniciarTMP(Sistema, name);
 		ptmp.run();
-		showd.close();
 	}
 	public void clearConsole() {
         for(int i = 0; i < 60; i++) {
