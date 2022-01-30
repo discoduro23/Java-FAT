@@ -12,7 +12,6 @@ public class ReiniciarTMP extends Proceso implements Runnable {
 	public void run() {
         while (running) {
             try {
-                System.out.println("Tmp Eliminado");
             	Thread.sleep(5000); //5 Segundos
                 
             } catch (InterruptedException e) {
