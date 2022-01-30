@@ -13,12 +13,10 @@ public class MenuManager extends Proceso implements Runnable {
 		Sistema = new SistemaFat(20);
 		procesos = new ListaProcesos();
 		Sistema.formatear();
-		initMenu();
+		procesos.crearProceso(this);
 	}
 	
 	public void initMenu() {
-		procesos.crearProceso(this);
-		mostrarMenu();
 	}
 	public void mostrarMenu() {
         Scanner sn = new Scanner(System.in);
@@ -178,10 +176,8 @@ public class MenuManager extends Proceso implements Runnable {
 	
 	void borrarTmp() {
 		Scanner showd = new Scanner(System.in);
-		System.out.println("Introduce un nombre.\n");
-		String name = showd.nextLine();
-		ReiniciarTMP ptmp = new ReiniciarTMP(Sistema, name);
-		ptmp.run();
+		ReiniciarTMP ptmp = new ReiniciarTMP(Sistema, "borrarTMP");
+		procesos.crearProceso(ptmp);
 	}
 	
 	void crearProceso() {
@@ -200,5 +196,10 @@ public class MenuManager extends Proceso implements Runnable {
         for(int i = 0; i < 60; i++) {
         	System.out.println("\n");
         }
+	}
+	public void run() {
+		while(running) {
+			mostrarMenu();
+		}
 	}
 }
