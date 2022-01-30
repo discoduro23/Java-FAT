@@ -12,15 +12,14 @@ public class ReiniciarTMP extends Proceso implements Runnable {
 	public void run() {
         while (running) {
             try {
-                //System.out.println("TMP BORRADO");
+                System.out.println("TMP BORRADO");
             	Thread.sleep(5000); //5 Segundos
                 
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            //Eliminar directorio TMP
-            fat.eliminarDirectorio("tmp");
-            // System.out.println("Eliminado directorio TMP");
+            fat.eliminarDirectorio("C:/tmp");
+            fat.anadirDirectorio("tmp", "C:");
   
         }
     }

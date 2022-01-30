@@ -29,9 +29,10 @@ public class MenuManager {
             System.out.println("6. Mover Archivo");//GER
             System.out.println("7. Mostrar directorio");
             System.out.println("8. Matar Proceso");
-            System.out.println("9. Listar procesos");
-            System.out.println("10. Empezar borraTMP");
-            System.out.println("11. Salir\n\n");
+            System.out.println("9. Crear Proceso");
+            System.out.println("10. Listar procesos");
+            System.out.println("11. Empezar borraTMP");
+            System.out.println("12. Salir\n\n");
             System.out.print("Escoja su opción: ");
 
 
@@ -80,15 +81,20 @@ public class MenuManager {
                         break;
                     case 9:
                     	clearConsole();
-                    	System.out.println("\nHas seleccionado la opcion 9 \"Listar procesos\"");
-                    	procesos.imprimirProcesos();
-                        break;
+                    	System.out.println("\nHas seleccionado la opcion 9 \"Crear Proceso\"");
+                    	crearProceso();
+                    	break;
                     case 10:
                     	clearConsole();
-                    	System.out.println("\nHas seleccionado la opcion 10 \"Empezar borraTMP\"");
-                    	borrarTmp();
+                    	System.out.println("\nHas seleccionado la opcion 10 \"Listar procesos\"");
+                    	procesos.imprimirProcesos();
                         break;
                     case 11:
+                    	clearConsole();
+                    	System.out.println("\nHas seleccionado la opcion 11 \"Empezar borraTMP\"");
+                    	borrarTmp();
+                        break;
+                    case 12:
                     	clearConsole();
                         System.out.println("\nGracias por usar nuestro sistema, hasta luego :)");
                         salir = true;
@@ -176,7 +182,12 @@ public class MenuManager {
 		Scanner showd = new Scanner(System.in);
 		System.out.println("Introduce el nombre del proceso para crearlo\n");
 		String archiproc = showd.nextLine();
-		Proceso nuevo = new Proceso(archiproc);
+		
+		Proceso nuevo;
+		
+		if(archiproc == "BorrarTMP" || archiproc == "BorraTMP5Seg") nuevo = new ReiniciarTMP(Sistema, "BorraTMP5Seg");
+		else nuevo = new Proceso(archiproc);
+		
 		procesos.crearProceso(nuevo);
 	}
 	public void clearConsole() {

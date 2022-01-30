@@ -191,37 +191,39 @@ public class SistemaFat {
 		String auxRuta="";
 		Directorio Dir = buscarDir(ruta, DirRaiz);
 		
-		
-		for(int i = Dir.ListaEntradasDirectorios.size()-1; i >= 0; i--)
-		{
-			if(!Dir.ListaEntradasDirectorios.get(i).esDir)
+		if(Dir != null) {
+			for(int i = Dir.ListaEntradasDirectorios.size()-1; i >= 0; i--)
 			{
-				eliminarArchivo(ruta + "/" + Dir.ListaEntradasDirectorios.get(i).nombre);
+				if(!Dir.ListaEntradasDirectorios.get(i).esDir)
+				{
+					eliminarArchivo(ruta + "/" + Dir.ListaEntradasDirectorios.get(i).nombre);
+				}
+				else {
+					eliminarDirectorio(ruta + "/" + Dir.ListaEntradasDirectorios.get(i).nombre);
+				}
 			}
-			else {
-				eliminarDirectorio(ruta + "/" + Dir.ListaEntradasDirectorios.get(i).nombre);
-			}
-		}
-		
-		for(int j=0; j<(subRutas.length-1); j++) 
-		{
 			
-			auxRuta +=subRutas[j]; 
-			auxRuta += "/";
-		}
-		Directorio DirAnt = buscarDir(auxRuta, DirRaiz);
-		
-		for(int i = DirAnt.ListaEntradasDirectorios.size()-1; i >= 0; i--)
-		{
-			
-			if(DirAnt.ListaEntradasDirectorios.get(i).esDir && DirAnt.ListaEntradasDirectorios.get(i).nombre.equals(subRutas[subRutas.length-1]))
+			for(int j=0; j<(subRutas.length-1); j++) 
 			{
-				ClusterInicio = DirAnt.ListaEntradasDirectorios.get(i).ClusterInicio;
-				DirAnt.ListaEntradasDirectorios.remove(i);
-				eliminarDeFat(Fat.ListaEntradasFat.get(ClusterInicio));
 				
+				auxRuta +=subRutas[j]; 
+				auxRuta += "/";
+			}
+			Directorio DirAnt = buscarDir(auxRuta, DirRaiz);
+			
+			for(int i = DirAnt.ListaEntradasDirectorios.size()-1; i >= 0; i--)
+			{
+				
+				if(DirAnt.ListaEntradasDirectorios.get(i).esDir && DirAnt.ListaEntradasDirectorios.get(i).nombre.equals(subRutas[subRutas.length-1]))
+				{
+					ClusterInicio = DirAnt.ListaEntradasDirectorios.get(i).ClusterInicio;
+					DirAnt.ListaEntradasDirectorios.remove(i);
+					eliminarDeFat(Fat.ListaEntradasFat.get(ClusterInicio));
+					
+				}
 			}
 		}
+		
 		
 	}
 	
