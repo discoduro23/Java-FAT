@@ -21,8 +21,9 @@ public class ListaProcesos {
 	
 	private boolean procesoExiste(String nombreEstudiar) {
 		for(Proceso p : arrayListProcesos) {
-			if(p.nombre == nombreEstudiar)
+			if(p.nombre.contains(nombreEstudiar) == true) {
 				return true;
+			}
 		}
 		return false;
 	}
@@ -44,9 +45,10 @@ public class ListaProcesos {
 	public void eliminarProceso(String nombreEliminar) {
 		if(procesoExiste(nombreEliminar)) {
 			for(Proceso p : arrayListProcesos) {
-				if(p.nombre == nombreEliminar) {
-					p.kill();
+				if(p.nombre.contains(nombreEliminar) == true) {
 					arrayListProcesos.remove(p);
+					p.kill();
+					break;
 				}
 			}
 		} else

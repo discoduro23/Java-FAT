@@ -6,8 +6,7 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		SistemaFat Sistema = new SistemaFat(20);
-		MenuManager main = new MenuManager();
-		main.mostrarMenu();
+		new MenuManager();
 		//Sistema.formatear();
 		//Sistema.anadirArchivo("peli","C:",3);
 		//Sistema.anadirDirectorio("pelis", "C:");

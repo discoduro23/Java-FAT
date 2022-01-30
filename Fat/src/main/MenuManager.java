@@ -3,17 +3,23 @@ import java.util.InputMismatchException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
-public class MenuManager {
+public class MenuManager extends Proceso implements Runnable {
 	
 	SistemaFat Sistema;
 	ListaProcesos procesos;
 	
 	public MenuManager() {
+		super("MenuManager");
 		Sistema = new SistemaFat(20);
 		procesos = new ListaProcesos();
 		Sistema.formatear();
+		initMenu();
 	}
 	
+	public void initMenu() {
+		procesos.crearProceso(this);
+		mostrarMenu();
+	}
 	public void mostrarMenu() {
         Scanner sn = new Scanner(System.in);
         boolean salir = false;
@@ -167,7 +173,7 @@ public class MenuManager {
 		Scanner showd = new Scanner(System.in);
 		System.out.println("Introduce el nombre del proceso para eliminar\n");
 		String archiproc = showd.nextLine();
-		procesos.eliminarProceso(archiproc);
+		procesos.eliminarProceso(archiproc+".exe");
 	}
 	
 	void borrarTmp() {
