@@ -16,33 +16,26 @@ public class MenuManager extends Proceso implements Runnable {
 		procesos.crearProceso(this);
 	}
 	
-	public void initMenu() {
-	}
 	public void mostrarMenu() {
-        Scanner sn = new Scanner(System.in);
-        boolean salir = false;
-        int opcion; //Guardaremos la opcion del usuario
-
-        while(!salir){
-            System.out.println("\n=========Escoja una opción del menú=========");
-            System.out.println("1. Crear Archivo");
-            System.out.println("2. Crear Directorio");
-            System.out.println("3. Mostrar Metadatos"); //DANIEL
-            System.out.println("4. Eliminar Archivo"); //GERMAN
-            System.out.println("5. Eliminar Directorio"); //GERMAN
-            System.out.println("6. Mover Archivo");//GER
-            System.out.println("7. Mostrar directorio");
-            System.out.println("8. Matar Proceso");
-            System.out.println("9. Crear Proceso");
-            System.out.println("10. Listar procesos");
-            System.out.println("11. Empezar borraTMP");
-            System.out.println("12. Salir\n\n");
-            System.out.print("Escoja su opción: ");
-
-
+        System.out.println("\n=========Escoja una opción del menú=========");
+        System.out.println("1. Crear Archivo");
+        System.out.println("2. Crear Directorio");
+        System.out.println("3. Mostrar Metadatos"); //DANIEL
+        System.out.println("4. Eliminar Archivo"); //GERMAN
+        System.out.println("5. Eliminar Directorio"); //GERMAN
+        System.out.println("6. Mover Archivo");//GER
+        System.out.println("7. Mostrar directorio");
+        System.out.println("8. Matar Proceso");
+        System.out.println("9. Crear Proceso");
+        System.out.println("10. Listar procesos");
+        System.out.println("11. Empezar borraTMP");
+        System.out.println("12. Salir\n\n");
+        System.out.print("Escoja su opción: ");
+	}
+	public void opcionMenu(int num) {
+        
             try {
-                opcion = sn.nextInt();
-                switch (opcion) {
+                switch (num) {
                     case 1:
                     	clearConsole();
                     	System.out.println("\nHas seleccionado la opcion 1 \"Crear Archivo\"");
@@ -101,7 +94,7 @@ public class MenuManager extends Proceso implements Runnable {
                     case 12:
                     	clearConsole();
                         System.out.println("\nGracias por usar nuestro sistema, hasta luego :)");
-                        salir = true;
+                        procesos.eliminarProceso("MenuManager.exe");
                         break;
                     default:
                     	clearConsole();
@@ -109,10 +102,7 @@ public class MenuManager extends Proceso implements Runnable {
                 }
             } catch (InputMismatchException ex) {
                 System.out.println("Debes insertar un número");
-                sn.nextLine();
             }
-        }
-        sn.close();
     }
 	
 	public void anadirArchivo() {
@@ -198,8 +188,12 @@ public class MenuManager extends Proceso implements Runnable {
         }
 	}
 	public void run() {
+		Scanner sn = new Scanner(System.in);
 		while(running) {
-			mostrarMenu();
+	        int opcion;
+	        mostrarMenu();
+	        opcion = sn.nextInt();
+			opcionMenu(opcion);
 		}
 	}
 }
