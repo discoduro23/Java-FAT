@@ -1,4 +1,3 @@
 # GithUSJ
-El github de los masterchetados
 
-Sistema FAT
+Sistema FAT escrito en Java
