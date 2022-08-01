@@ -1,4 +1,4 @@
-# GithUSJ
+# Java - FAT system
 
 Sistema FAT escrito en Java. Trabajo hecho y evaluado en la asignatura de Sistemas Operativos. No se permite el copiado de forma completa ni parcial. Delimitese a la comprension del proyecto y plasme la idea con sus propias palabras.
 
