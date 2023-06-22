@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8a1b0a02-82d4-483a-a4af-72e8df728d5c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../.project" beforeDir="false" afterPath="$PROJECT_DIR$/../.project" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" afterPath="$PROJECT_DIR$/.project" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fat.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Fat.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main/Cluster.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/Cluster.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main/Directorio.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/Directorio.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main/Entrada_Directorio.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/Entrada_Directorio.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main/Entrada_Fat.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/Entrada_Fat.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main/FAT.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/FAT.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main/Parte_de_Archivo.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/Parte_de_Archivo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main/SistemaFat.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/SistemaFat.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Cluster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Cluster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Directorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Directorio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Entrada_Directorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Entrada_Directorio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Entrada_Fat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Entrada_Fat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/FAT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/FAT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ListaProcesos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ListaProcesos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/MenuManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MenuManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Parte_de_Archivo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Parte_de_Archivo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Proceso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Proceso.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ReiniciarTMP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ReiniciarTMP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LICENSE.md" beforeDir="false" afterPath="$PROJECT_DIR$/../LICENSE.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2RZ0QVtGAPOpk69gRPlPGzWL1NT" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8a1b0a02-82d4-483a-a4af-72e8df728d5c" name="Changes" comment="" />
+      <created>1687442287746</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1687442287746</updated>
+      <workItem from="1687442288731" duration="400000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

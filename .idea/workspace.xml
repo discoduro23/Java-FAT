@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0b366b73-862b-43ea-8552-e209b9673be6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" afterPath="$PROJECT_DIR$/.project" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fat/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/Fat/.classpath" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fat/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/Fat/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fat/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Fat/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fat/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Fat/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fat/.idea/runConfigurations.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Fat/.idea/runConfigurations.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fat/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Fat/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fat/.project" beforeDir="false" afterPath="$PROJECT_DIR$/Fat/.project" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fat/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/Fat/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fat/Fat.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Fat/Fat.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fat/bin/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/Fat/bin/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fat/src/main/Cluster.java" beforeDir="false" afterPath="$PROJECT_DIR$/Fat/src/main/Cluster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fat/src/main/Directorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/Fat/src/main/Directorio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fat/src/main/Entrada_Directorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/Fat/src/main/Entrada_Directorio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fat/src/main/Entrada_Fat.java" beforeDir="false" afterPath="$PROJECT_DIR$/Fat/src/main/Entrada_Fat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fat/src/main/FAT.java" beforeDir="false" afterPath="$PROJECT_DIR$/Fat/src/main/FAT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fat/src/main/ListaProcesos.java" beforeDir="false" afterPath="$PROJECT_DIR$/Fat/src/main/ListaProcesos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fat/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Fat/src/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fat/src/main/MenuManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Fat/src/main/MenuManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fat/src/main/Parte_de_Archivo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Fat/src/main/Parte_de_Archivo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fat/src/main/Proceso.java" beforeDir="false" afterPath="$PROJECT_DIR$/Fat/src/main/Proceso.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fat/src/main/ReiniciarTMP.java" beforeDir="false" afterPath="$PROJECT_DIR$/Fat/src/main/ReiniciarTMP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE.md" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2RYxxRKR8rwx3HRAAxODk73TnSs" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/danie/Documents/GitHub/Java-FAT&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0b366b73-862b-43ea-8552-e209b9673be6" name="Changes" comment="" />
+      <created>1687441061539</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1687441061539</updated>
+      <workItem from="1687441063249" duration="1040000" />
+      <workItem from="1687442188830" duration="2000" />
+      <workItem from="1687442206252" duration="81000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
